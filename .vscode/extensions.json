@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "nuxtr.nuxt-vscode-extentions",
+        "streetsidesoftware.code-spell-checker-british-english",
+        "dbaeumer.vscode-eslint",
+        "visualstudioexptteam.vscodeintellicode",
+        "bradlc.vscode-tailwindcss"
+    ]
+}
