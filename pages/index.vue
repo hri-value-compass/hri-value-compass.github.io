@@ -5,11 +5,13 @@
       and ethical concerns that arise in human-robot interactions (HRI). It was
       developed as part of a joint study by Ghent University (Belgium) and
       Politecnico di Milano (Italy). The publication of the study is currently
-      under review and is available at the following link:
-      <!-- TODO: fix link -->
+      under review and a preprint will be available here shortly.
+      <!--available at the following link:
+       TODO: fix link 
       <a href="" target="_blank" class="underline">
         Ethical Concerns and Values in Human-Robot Interactions </a
-      >. If you use the tool in your research, please cite the publication.
+      >.-->
+      If you use the tool in your research, please cite the publication.
     </p>
     <br />
     <div

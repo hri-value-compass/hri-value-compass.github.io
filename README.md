@@ -4,16 +4,17 @@ The HRI Value Compass is a web tool that helps researchers identify values
 and ethical concerns that arise in human-robot interactions (HRI). It was
 developed as part of a joint study by Ghent University (Belgium) and
 Politecnico di Milano (Italy). The publication of the study is currently
-under review and is available at the following link:
+under review and a preprint will be available here shortly.
+
+<!-- at the following link:
 [Ethical Concerns and Values in Human-Robot Interactions]().
 
-<!-- TODO: fix link -->
+ TODO: fix link -->
 
 If you use the tool in your research, please cite the publication.
 
 The tool is hosted at [hri-value-compass.github.io](hri-value-compass.github.io).
 A paper version of the tool is available on [zenodo](https://doi.org/10.5281/zenodo.14002841).
-
 
 The HRI Value Compass guides the user through a three steps process. In
 the first step, the user is invited to reflect on the context in which the

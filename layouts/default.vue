@@ -47,7 +47,7 @@ const description =
 
 useSeoMeta({
   title: "HRI Value Compass",
-  ogTitle: description,
+  ogTitle: "HRI Value Compass",
   description: description,
   ogDescription: description,
 });
