@@ -1,12 +1,12 @@
 <template>
   <div class="overflow-x-auto">
-    <h2 class="text-2xl font-bold mb-5">
+    <component :is="headingTag" class="text-2xl font-bold mb-5">
       References
       <span v-if="filter"
         >about the topic:
         {{ filter.charAt(0).toUpperCase() + filter.slice(1) }}</span
       >
-    </h2>
+    </component>
     <p v-if="!navigation">
       These are the papers that were reviewed in the scoping study. Click on the
       title to access the paper.
@@ -70,7 +70,9 @@
 const props = defineProps({
   filter: { type: String, default: null },
   navigation: { type: Boolean, default: true },
+  headingLevel: { type: String, default: "h1" },
 });
+const headingTag = computed(() => props.headingLevel === "h2" ? "h2" : "h1");
 const papersData = computed(() =>
   papers().filter((p) => !props.filter || p.topics.includes(props.filter))
 );

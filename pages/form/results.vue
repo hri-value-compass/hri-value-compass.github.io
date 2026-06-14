@@ -50,6 +50,12 @@
 
 <script lang="ts" setup>
 const form = useState("form", formData);
+
+useSeoMeta({
+  title: "Results Overview | HRI Value Compass",
+  robots: "noindex, nofollow",
+});
+
 const context = computed(() => form.value.context.filter((q) => q.answer));
 const reflection = computed(() =>
   form.value.reflection

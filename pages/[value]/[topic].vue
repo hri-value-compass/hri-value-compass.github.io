@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { getConcernMeta } from "~/utils/concernsAndValues"
+import { absoluteUrl, paperUrl as studyUrl, siteName, truncateDescription } from "~/utils/seo"
 import papers from "~/utils/papers"
 
 const route = useRoute()
@@ -15,11 +16,48 @@ if (!meta) {
   })
 }
 
-const pageTitle = meta.valueTitle + " - " + meta.title + " | HRI Value Compass"
+const contentTitle = meta.valueTitle + " - " + meta.title
+const pageTitle = contentTitle + " | " + siteName
+const canonicalUrl = absoluteUrl("/" + valueSlug + "/" + topicSlug)
+const pageDescription = truncateDescription(meta.description + " " + meta.intro[0])
 
 useSeoMeta({
   title: pageTitle,
   ogTitle: pageTitle,
+  ogType: "article",
+  description: pageDescription,
+  ogDescription: pageDescription,
+  ogUrl: canonicalUrl,
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+})
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: contentTitle,
+        name: contentTitle,
+        description: pageDescription,
+        url: canonicalUrl,
+        isPartOf: {
+          "@type": "WebSite",
+          name: siteName,
+          url: absoluteUrl("/"),
+        },
+        about: [
+          meta.valueTitle,
+          meta.title,
+          "human-robot interaction",
+          "social robotics",
+        ],
+        citation: studyUrl,
+      }),
+    },
+  ],
 })
 
 const normalizeTopic = (topic: string) => topic.toLowerCase().replaceAll("-", " ").trim()
@@ -46,7 +84,7 @@ const topicPapers = computed(() => {
 
 <template>
   <article class="space-y-5">
-    <h2 class="text-2xl font-bold">{{ meta.valueTitle }} &ndash; {{ meta.title }}</h2>
+    <h1 class="text-2xl font-bold">{{ meta.valueTitle }} &ndash; {{ meta.title }}</h1>
     <blockquote class="border-l-4 border-gray-300 pl-4 italic text-gray-600">{{ meta.description }}</blockquote>
     <div class="space-y-4">
       <p v-for="(paragraph, index) in meta.intro" :key="index">

@@ -10,7 +10,7 @@
           {{ el.name }}
         </li>
       </ul>
-      <h2 v-if="title" class="text-2xl font-bold text-center">{{ title }}</h2>
+      <h1 v-if="title" class="text-2xl font-bold text-center">{{ title }}</h1>
       <p v-if="subtitle" class="italic text-center mb-16">{{ subtitle }}</p>
       <slot />
       <div class="card-actions justify-between">

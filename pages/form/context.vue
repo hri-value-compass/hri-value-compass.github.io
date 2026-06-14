@@ -20,7 +20,21 @@
 </template>
 
 <script lang="ts" setup>
+import { absoluteUrl, siteName } from "~/utils/seo"
+
 const form = useState("form", formData);
+
+const description = "Start the HRI Value Compass tool by describing the context of a human-robot interaction research project.";
+
+useSeoMeta({
+  title: "Use the Tool | " + siteName,
+  ogTitle: "Use the Tool | " + siteName,
+  description,
+  ogDescription: description,
+  ogUrl: absoluteUrl("/form/context"),
+  twitterTitle: "Use the Tool | " + siteName,
+  twitterDescription: description,
+});
 
 const toReflection = () => {
   localStorage.setItem("formData", JSON.stringify(form.value));

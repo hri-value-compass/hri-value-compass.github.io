@@ -1,10 +1,44 @@
 <script setup lang="ts">
 import { concernRows } from '~/utils/concernsAndValues'
+import { absoluteUrl, defaultDescription, paperUrl, siteName, zenodoToolUrl } from '~/utils/seo'
+
+useSeoMeta({
+  title: siteName,
+  ogTitle: siteName,
+  description: defaultDescription,
+  ogDescription: defaultDescription,
+  ogUrl: absoluteUrl('/'),
+  twitterTitle: siteName,
+  twitterDescription: defaultDescription,
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: siteName,
+        url: absoluteUrl('/'),
+        applicationCategory: 'ResearchApplication',
+        description: defaultDescription,
+        citation: paperUrl,
+        sameAs: [paperUrl, zenodoToolUrl],
+        audience: {
+          '@type': 'Audience',
+          audienceType: 'Human-robot interaction researchers',
+        },
+      }),
+    },
+  ],
+})
 </script>
 
 <template>
   <div class="prose md:prose-lg">
     <article class="space-y-8">
+      <h1 class="text-3xl font-bold">HRI Value Compass</h1>
       <p>
         The HRI Value Compass is the result of a joint study by Ghent University
         (Belgium) and Politecnico di Milano (Italy):

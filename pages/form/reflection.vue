@@ -9,7 +9,7 @@
             ✕
           </button>
         </form>
-        <papers-table :filter="currentTopic" :navigation="false" />
+        <papers-table :filter="currentTopic" :navigation="false" heading-level="h2" />
       </div>
       <form method="dialog" class="modal-backdrop">
         <button>close</button>
@@ -46,6 +46,11 @@
 <script lang="ts" setup>
 const form = useState("form", formData);
 const currentTopic = useState("currentTopic", () => "");
+
+useSeoMeta({
+  title: "Values Reflection | HRI Value Compass",
+  robots: "noindex, follow",
+});
 
 const toResults = async () => {
   localStorage.setItem("formData", JSON.stringify(form.value));

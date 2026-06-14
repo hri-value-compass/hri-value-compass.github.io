@@ -26,6 +26,10 @@
 </template>
 
 <script lang="ts" setup>
+import { absoluteUrl, defaultDescription, paperUrl, siteName, siteUrl } from "~/utils/seo"
+
+const route = useRoute()
+const canonicalUrl = computed(() => absoluteUrl(route.path))
 const form = useState("form", formData);
 
 onBeforeMount(() => {
@@ -49,22 +53,58 @@ onBeforeMount(() => {
 });
 
 useHead({
+  htmlAttrs: { lang: "en" },
+  link: [
+    { rel: "canonical", href: canonicalUrl },
+  ],
   script: [
     {
       src: "https://stats.hri.ilabt.imec.be/count.js",
       "data-goatcounter": "https://stats.hri.ilabt.imec.be/count",
       body: true,
     },
+    {
+      type: "application/ld+json",
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": siteUrl + "/#website",
+            name: siteName,
+            url: siteUrl + "/",
+            description: defaultDescription,
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": paperUrl + "#article",
+            name: "Concerns and Values in Human-Robot Interactions: A Focus on Social Robotics",
+            url: paperUrl,
+            datePublished: "2026-01-14",
+            isPartOf: {
+              "@type": "Periodical",
+              name: "International Journal of Social Robotics",
+            },
+            author: [
+              { "@type": "Person", name: "Giulio Antonio Abbo" },
+              { "@type": "Person", name: "Tony Belpaeme" },
+              { "@type": "Person", name: "Micol Spitale" },
+            ],
+          },
+        ],
+      }),
+    },
   ],
 });
 
-const description =
-  "The HRI Value Compass is a web tool that helps researchers identify values and ethical concerns that arise in human-robot interactions";
-
 useSeoMeta({
-  title: "HRI Value Compass",
-  ogTitle: "HRI Value Compass",
-  description: description,
-  ogDescription: description,
+  title: siteName,
+  ogTitle: siteName,
+  description: defaultDescription,
+  ogDescription: defaultDescription,
+  ogUrl: canonicalUrl,
+  twitterCard: "summary",
+  twitterTitle: siteName,
+  twitterDescription: defaultDescription,
 });
 </script>
