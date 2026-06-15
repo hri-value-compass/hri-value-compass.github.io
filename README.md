@@ -16,7 +16,7 @@ research, please cite the publication.
     Int J of Soc Robotics 18, 4 (2026).
     https://doi.org/10.1007/s12369-025-01351-1
 
-This page is hosted at [hri-value-compass.github.io](hri-value-compass.github.io).
+This page is hosted at [hri-value-compass.github.io](https://hri-value-compass.github.io/).
 A paper version of the tool is available on [zenodo](https://doi.org/10.5281/zenodo.14002841).
 
 ## Contributing
@@ -27,7 +27,7 @@ improvements, and bug reports. We are also open to collaborations with
 other researchers who would like to use the tool in their research.
 
 ```bibtex
-@misc{abbo2025concernsvalueshumanrobotinteractions,
+@article{abbo2025concernsvalueshumanrobotinteractions,
   author={Abbo, Giulio Antonio
   and Belpaeme, Tony
   and Spitale, Micol},
