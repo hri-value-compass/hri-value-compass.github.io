@@ -59,8 +59,8 @@ useHead({
   ],
   script: [
     {
-      src: "https://stats.hri.ilabt.imec.be/count.js",
-      "data-goatcounter": "https://stats.hri.ilabt.imec.be/count",
+      src: "//gc.zgo.at/count.js",
+      "data-goatcounter": "https://giubots.goatcounter.com/count",
       body: true,
     },
     {
